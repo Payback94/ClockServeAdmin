@@ -13,7 +13,7 @@
 
     //sql command
     $sql="Insert into users where values (?,?,?,?) ";
-
+    
     //initialize prepared statement
     $register = mysqli_stmt_init($conn);
 

@@ -74,7 +74,7 @@ $employee_count = mysqli_num_rows($employee_total_result);
                         Requests
                     </div>
                     <div class="row">
-                        <a class="card-footer text-white clearfix small z-1" href="#">
+                        <a class="card-footer text-white clearfix small z-1" href="../pages/annual_request.php">
                             <span class="float-left">View Details</span>
                             <span class="float-right">
                                 <i class="fa fa-angle-right"></i>

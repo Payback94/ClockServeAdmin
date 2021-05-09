@@ -22,7 +22,7 @@ include('../pages/Layout/header.php');
             <div class="row">
                 <div class="col-md-2">
                     <label>Employee Gender:</label>
-                    <select class="form-control" name="emp_gender" id="emp_gender">
+                    <select class="form-select" name="emp_gender" id="emp_gender">
                         <option value="male">Male</option>
                         <option value="female">Female</option>
                     </select>
@@ -56,40 +56,6 @@ include('../pages/Layout/header.php');
                     <input class="form-control" type="password" name="emp_confirm_password">
                 </div>
             </div>
-        </div>
-        <div class="form-group">
-            <div class="row">
-                <div class="col-md-6">
-                    <label>Address Line 1: </label>
-                    <input class="form-control" type="text" name="emp_address_1">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-6">
-                    <label>Address Line 2: </label>
-                    <input class="form-control" type="text" name="emp_address_2">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-6">
-                    <label>Address Line 3: </label>
-                    <input class="form-control" type="text" name="emp_address_3">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-2">
-                    <label>Zip Code: </label>
-                    <input class="form-control" type="text" name="emp_address_4">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-2">
-                    <label>State: </label>
-                    <input class="form-control" type="text" name="emp_address_5">
-                </div>
-            </div>
-
-
         </div>
         <br />
         <input class="btn btn-primary btn-block" type="submit" name="Submit">
