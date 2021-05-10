@@ -6,6 +6,26 @@ $employee_total_sql = "SELECT * From employee";
 $employee_total_result = mysqli_query($conn, $employee_total_sql);
 $employee_count = mysqli_num_rows($employee_total_result);
 
+$today=date("Y-m-d");
+
+$attendance_sql = "SELECT 
+                        e.emp_first_name as emp_first_name, 
+                        e.emp_last_name as emp_last_name, 
+                        a.attendance_id, 
+                        a.emp_id,
+                        a.attendance_day, 
+                        a.attendance_date, 
+                        a.attendance_timeIn, 
+                        a.attendance_timeOut
+                    FROM 
+                        attendance a                     
+                    LEFT JOIN 
+                        employee e on a.emp_id = e.emp_id 
+                    WHERE
+                        a.attendance_date=$today
+                    ORDER BY
+                        a.attendance_date DESC";
+$attendance_result = mysqli_query($conn, $attendance_sql);
 
 ?>
 
@@ -88,31 +108,39 @@ $employee_count = mysqli_num_rows($employee_total_result);
     <div class="row ">
         <div></div>
         <div>
-            <h4 class="border-bottom mb-4">Attendance Table</h4>
+            <h4 class="border-bottom mb-4">Daily Attendance Table</h4>
             <i>Shows who has clocked in recently</i>
             <table class="table">
                 <tr class="bg-secondary text-white">
                     <td>#</td>
-                    <td>Employee ID</td>
                     <td>Employee Name</td>
                     <td>Day</td>
                     <td>Date</td>
-                    <td>Clock In 1</td>
-                    <td>Clock Out 1</td>
-                    <td>Clock In 2</td>
-                    <td>Clock Out 2</td>
+                    <td>Clock In</td>
+                    <td>Lunch Out</td>
+                    <td>Lunch In</td>
+                    <td>Clock Out</td>
                 </tr>
-                <tr>
-                    <td>$number</td>
-                    <td>$emp_id</td>
-                    <td>$emp_name</td>
-                    <td>$emp_day</td>
-                    <td>$attendDate</td>
-                    <td>$attendTime1</td>
-                    <td>$attendTime1</td>
-                    <td>$attendTime2</td>
-                    <td>$attendTime2</td>
-                </tr>
+                <?php
+                $attendCount = 1;
+                while ($attendance_row = mysqli_fetch_assoc($attendance_result)) {
+                ?>
+                    <tr>
+                        <td><?php echo $attendCount ?></td>
+                        <td><?php echo ucwords($attendance_row['emp_first_name'])." ".ucwords($attendance_row['emp_last_name']) ?></td>
+                        <td><?php echo $attendance_row['attendance_day'] ?></td>
+                        <td><?php echo $attendance_row['attendance_date'] ?></td>
+                        <td><?php echo $attendance_row['attendance_timeIn'] ?></td>
+                        <td>$LunchOut</td>
+                        <td>$LunchIn</td>
+                        <td><?php echo $attendance_row['attendance_timeOut'] ?></td>
+                    </tr>
+
+                <?php
+                $attendCount = $attendCount+1;
+                }
+                ?>
+
             </table>
         </div>
     </div>
