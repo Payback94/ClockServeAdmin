@@ -2,18 +2,43 @@
 include_once('../api/config.php');
 
 $currentDate = Date('Y-m-d H:i:s');
-//select all the dates in a week
-$weekDateSql = "Select attendance_day, attendance_date, COUNT(attendance_date) from attendance GROUP_BY attendance_date";
-$weekdate = mysqli_query($conn, $weekDateSql);
+//select all the dayas in a week
+$SundaySql = "Select attendance_day, emp_id from attendance where attendance_day='Sunday'";
+$SundayQuery = mysqli_query($conn, $SundaySql);
+$SundayCount = mysqli_num_rows($SundayQuery);
+
+$MondaySql = "Select attendance_day, emp_id from attendance where attendance_day='Monday'";
+$MondayQuery = mysqli_query($conn, $MondaySql);
+$MondayCount = mysqli_num_rows($MondayQuery);
+
+$TuesdaySql = "Select attendance_day, emp_id from attendance where attendance_day='Tuesday'";
+$TuesdayQuery = mysqli_query($conn, $TuesdaySql);
+$TuesdayCount = mysqli_num_rows($TuesdayQuery);
+
+$WednesdaySql = "Select attendance_day, emp_id from attendance where attendance_day='Wednesday'";
+$WednesdayQuery = mysqli_query($conn, $WednesdaySql);
+$WednesdayCount = mysqli_num_rows($WednesdayQuery);
+
+$ThursdaySql = "Select attendance_day, emp_id from attendance where attendance_day='Thursday'";
+$ThursdayQuery = mysqli_query($conn, $ThursdaySql);
+$ThursdayCount = mysqli_num_rows($ThursdayQuery);
+
+$FridaySql = "Select attendance_day, emp_id from attendance where attendance_day='Friday'";
+$FridayQuery = mysqli_query($conn, $FridaySql);
+$FridayCount = mysqli_num_rows($FridayQuery);
+
+$SaturdaySql = "Select attendance_day, emp_id from attendance where attendance_day='Saturday'";
+$SaturdayQuery = mysqli_query($conn, $SaturdaySql);
+$SaturdayCount = mysqli_num_rows($SaturdayQuery);
 
 $dataPoints = array(
-	array("y" => 25, "label" => "Sunday"),
-	array("y" => 15, "label" => "Monday"),
-	array("y" => 25, "label" => "Tuesday"),
-	array("y" => 5, "label" => "Wednesday"),
-	array("y" => 10, "label" => "Thursday"),
-	array("y" => 0, "label" => "Friday"),
-	array("y" => 20, "label" => "Saturday")
+	array("y" => $SundayCount, "label" => "Sunday"),
+	array("y" => $MondayCount, "label" => "Monday"),
+	array("y" => $TuesdayCount, "label" => "Tuesday"),
+	array("y" => $WednesdayCount, "label" => "Wednesday"),
+	array("y" => $ThursdayCount, "label" => "Thursday"),
+	array("y" => $FridayCount, "label" => "Friday"),
+	array("y" => $SaturdayCount, "label" => "Saturday")
 );
 ?>
 <script>

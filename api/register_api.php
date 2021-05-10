@@ -26,10 +26,14 @@
 
     if(empty($employee_first_name) || empty($employee_last_name) || empty($employee_email) || empty($employee_gender) || empty($employee_birthdate) || empty($employee_race) || empty($employee_password) || empty($employee_password1)) 
     {
-        header('Location:../pages/addEmployee.php?register_error=passwordError');
+        header('Location:../pages/addEmployee.php?register_error=registerEmpty');
         exit(); 
     } else {
-        $stmt = $conn->prepare($sql);
+        if(!preg_match("/^[a-zA-Z]*$/", $employee_first_name) || !preg_match("/^[a-zA-Z]*$/", $employee_last_name))
+        {
+            header('Location:../pages/addEmployee.php?register_error=char');
+        } else {
+            $stmt = $conn->prepare($sql);
         
         if($employee_password == $employee_password1){
             $hashed = password_hash($employee_password, PASSWORD_DEFAULT);
@@ -51,8 +55,7 @@
         } else {
             header('Location:../pages/addEmployee.php?register_error=password_error');
         }
+        }
+        
     }
-    
-    
-    
 ?>
