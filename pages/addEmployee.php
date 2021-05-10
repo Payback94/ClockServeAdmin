@@ -2,8 +2,8 @@
 include('../api/session.php');
 include('../pages/Layout/header.php');
 ?>
-<div class="container ms-5 mt-5">
-    <div class="col-sm-8">
+<div class="container">
+    <div class="col-lg-12 p-5">
         <div class="container bg-primary p-3 rounded mb-3 text-white">
             <h3>Employee Admin Registration</h3>
             <p><i>For remote purposes</i></p>
@@ -16,7 +16,19 @@ include('../pages/Layout/header.php');
                 <li class="breadcrumb-item active">Add New Employee</li>
             </ol>
         </div>
-        <div class="card p-5 shadow mb-4">
+        <?php 
+            $fullurl="$_SERVER[REQUEST_URI]";
+            if(strpos($fullurl, "register_error=registerEmpty")){
+                echo  "<div class='container p-3 rounded bg-danger text-white'>Please fill the fields</div>";
+            } elseif (strpos($fullurl, "register_error=addError")){
+                echo "<div class='container p-3 rounded bg-danger text-white'>Something bad happened</div>";
+            } elseif (strpos($fullurl, "register_error=password_error")) {
+                echo "<div class='container p-3 rounded bg-danger text-white'>Match your password please</div>";
+            } elseif (strpos($fullurl, "register_error=char")) {
+                echo "<div class='container p-3 rounded bg-danger text-white'>Please input only alphabets in name fields</div>";
+            }
+        ?>
+        <div class="card p-5 shadow mt-2 mb-4">
             <form class="form-inline" action="../api/register_api.php" method="post">
                 <div class="form-group">
                     <div class="row">
@@ -74,16 +86,7 @@ include('../pages/Layout/header.php');
                 <input class="btn btn-secondary btn-block" type="reset" name="Clear">
             </form>
         </div>
-        <?php 
-            $fullurl="$_SERVER[REQUEST_URI]";
-            if(strpos($fullurl, "register_error=registerEmpty")){
-                echo  "<div class='container p-3 rounded mb-5 bg-danger text-white'>It's empty</div>";
-            } elseif (strpos($fullurl, "register_error=addError")){
-                echo "<div class='container p-3 rounded mb-5 bg-danger text-white'>Something bad happened</div>";
-            } elseif (strpos($fullurl, "register_error=password_error")) {
-                echo "<div class='container p-3 rounded mb-5 bg-danger text-white'>Match your password please</div>";
-            }
-        ?>
+        
     </div>
 
 

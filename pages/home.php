@@ -30,9 +30,10 @@ $attendance_result = mysqli_query($conn, $attendance_sql);
 ?>
 
 <!--main display-->
-<div class="container ms-5 mt-5">
-    <!-- Breadcrumbs-->
-    <ol class="breadcrumb">
+<div class="container">
+<div class="col-lg-12 p-5">
+<!-- Breadcrumbs-->
+<ol class="breadcrumb">
         <li class="breadcrumb-item">
             <a href="#">Dashboard</a>
         </li>
@@ -73,7 +74,7 @@ $attendance_result = mysqli_query($conn, $attendance_sql);
                         Attendance
                     </div>
                     <div class="row">
-                        <a class="card-footer text-white clearfix small z-1" href="">
+                        <a class="card-footer text-white clearfix small z-1" href="./attendance.php">
                             <span class="float-left">View Details</span>
                             <span class="float-right">
                                 <i class="fa fa-angle-right"></i>
@@ -94,7 +95,7 @@ $attendance_result = mysqli_query($conn, $attendance_sql);
                         Requests
                     </div>
                     <div class="row">
-                        <a class="card-footer text-white clearfix small z-1" href="../pages/annual_request.php">
+                        <a class="card-footer text-white clearfix small z-1" href="../pages/approval.php">
                             <span class="float-left">View Details</span>
                             <span class="float-right">
                                 <i class="fa fa-angle-right"></i>
@@ -144,6 +145,8 @@ $attendance_result = mysqli_query($conn, $attendance_sql);
             </table>
         </div>
     </div>
+</div>
+    
 </div>
 
 

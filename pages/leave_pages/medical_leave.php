@@ -65,7 +65,7 @@ $rquery = mysqli_query($conn, $rsql);
                         <td>" . $r_list['date_leave'] . "</td>
                         <td>" . $r_list['date_return'] . "</td>
                         <td>" . $r_list['request_approval'] . "</td>
-                        <td><a class='btn btn-primary' href='#'>Approve</a> | <a class='btn btn-warning' href='#'>Deny</a></td>
+                        <td><a class='btn btn-primary' href='./api/approve.php?emp_id=".$r_list['emp_id']."'>Approve</a> | <a class='btn btn-warning' href='#'>Deny</a></td>
                         </tr>";
                                 $count = $count + 1;
                             }

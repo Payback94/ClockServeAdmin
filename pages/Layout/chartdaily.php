@@ -46,7 +46,7 @@ window.onload = function () {
  
 var chart = new CanvasJS.Chart("chartContainer", {
 	title: {
-		text: "Attendance this week"
+		text: "Attendance this Month"
 	},
 	axisY: {
 		title: "Number of Attendance"

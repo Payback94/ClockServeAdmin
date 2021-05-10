@@ -33,7 +33,9 @@
         {
             header('Location:../pages/addEmployee.php?register_error=char');
         } else {
-            $stmt = $conn->prepare($sql);
+        
+        
+        $stmt = $conn->prepare($sql);
         
         if($employee_password == $employee_password1){
             $hashed = password_hash($employee_password, PASSWORD_DEFAULT);

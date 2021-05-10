@@ -9,15 +9,19 @@
     <title>ClockServe Admin</title>
 </head>
 
-<body class="bg-pattern"> 
-     <!-- navigation -->
+<body class="bg-pattern">
+    <!-- navigation -->
     <div class="wrapper">
         <!-- Sidebar -->
         <nav id="sidebar">
             <div class="sidebar-header">
-                <h3>ClockServe</h3>
+                <div class="row d-flex justify-content-center">
+                    <div class="col-lg-2"><img src="../asset/img/clock.png" height="25"></div>
+                    <div class="col-lg-8">
+                        <h3>ClockServe</h3>
+                    </div>
+                </div>
             </div>
-
             <ul class="list-unstyled components">
                 <p><a href="../index.php">Welcome <?php echo $login_session; ?></a> </p>
                 <li class="active">
@@ -45,4 +49,3 @@
                 </li>
             </ul>
         </nav>
-
