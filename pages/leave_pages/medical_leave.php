@@ -57,7 +57,7 @@ $rquery = mysqli_query($conn, $rsql);
                             <?php
                             $count = 1;
                             while ($r_list = mysqli_fetch_assoc($rquery)) {
-                                echo "<tr><td>" . $count . "</td>
+                                echo "<form action='../api/approve.php' method='post'><tr><td>" . $count . "</td>
                         <td>" . ucwords($r_list['emp_first_name']) . "</td>
                         <td>" . ucwords($r_list['emp_last_name']) . "</td>
                         <td>" . $r_list['request_type'] . "</td>
@@ -65,8 +65,10 @@ $rquery = mysqli_query($conn, $rsql);
                         <td>" . $r_list['date_leave'] . "</td>
                         <td>" . $r_list['date_return'] . "</td>
                         <td>" . $r_list['request_approval'] . "</td>
-                        <td><a class='btn btn-primary' href='./api/approve.php?emp_id=".$r_list['emp_id']."'>Approve</a> | <a class='btn btn-warning' href='#'>Deny</a></td>
-                        </tr>";
+                        <input type='hidden' name='request_id' value='".$r_list['request_id']."'>
+                        <input type='hidden' name='emp_id' value='".$r_list['emp_id']."'>
+                        <td><input class='btn btn-primary' type='submit' name='approve' value='Approve'> | <input class='btn btn-danger' type='submit' name='deny' value='Deny'> </td>
+                        </tr></form>";
                                 $count = $count + 1;
                             }
                             ?>

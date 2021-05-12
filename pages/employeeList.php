@@ -38,7 +38,7 @@ $employee_List_result = mysqli_query($conn, $employee_List_sql);
                      echo "<td>" . ucwords($employee_Lists['emp_gender']) . " </td>";
                      echo "<td>" . ($employee_Lists['emp_email']) . " </td>";
                      echo "<td>" . ucwords($employee_Lists['emp_race']) . " </td>";
-                     echo "<td><font color='blue'><a href='profile.php?emp_id=$emp_id'>View Profile</a></font></td>";
+                     echo "<td><font color='blue'><a href='../pages/employee_profile.php?emp_id=$emp_id'>View Profile</a></font></td>";
                      echo "</tr>";
                      $empCount = $empCount + 1;
                   }

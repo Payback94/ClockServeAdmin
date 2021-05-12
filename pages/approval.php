@@ -26,7 +26,7 @@ include('../pages/Layout/header.php');
             }
             ?>
             <div class="row">
-               <div class="col-sm-4">
+               <div class="col-lg-4">
                   <div class="card p-4">
                      <div class="card-block">
                         <img src="../asset/img/travelling.png" height="50">
@@ -37,7 +37,7 @@ include('../pages/Layout/header.php');
                   </div>
 
                </div>
-               <div class="col-sm-4">
+               <div class="col-lg-4">
                   <div class="card p-4">
                      <div class="card-block">
                         <img src="../asset/img/hospital.png" height="50">
@@ -47,7 +47,7 @@ include('../pages/Layout/header.php');
                      <a class="btn btn-primary" href="../pages/medical_request.php">Go!</a>
                   </div>
                </div>
-               <div class="col-sm-4">
+               <div class="col-lg-4">
                   <div class="card p-4">
                      <div class="card-block">
                         <img src="../asset/img/alarm.png" height="50">
