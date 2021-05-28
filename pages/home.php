@@ -16,13 +16,15 @@ $attendance_sql = "SELECT
                         a.attendance_day, 
                         a.attendance_date, 
                         a.attendance_timeIn, 
+                        a.Lunch_Out, 
+                        a.Lunch_In, 
                         a.attendance_timeOut
                     FROM 
                         attendance a                     
                     LEFT JOIN 
                         employee e on a.emp_id = e.emp_id 
                     WHERE
-                        a.attendance_date=$today
+                        a.attendance_date=CURDATE()
                     ORDER BY
                         a.attendance_date DESC";
 $attendance_result = mysqli_query($conn, $attendance_sql);
@@ -132,8 +134,8 @@ $attendance_result = mysqli_query($conn, $attendance_sql);
                         <td><?php echo $attendance_row['attendance_day'] ?></td>
                         <td><?php echo $attendance_row['attendance_date'] ?></td>
                         <td><?php echo $attendance_row['attendance_timeIn'] ?></td>
-                        <td>$LunchOut</td>
-                        <td>$LunchIn</td>
+                        <td><?php echo $attendance_row['Lunch_Out'] ?></td>
+                        <td><?php echo $attendance_row['Lunch_In'] ?></td>
                         <td><?php echo $attendance_row['attendance_timeOut'] ?></td>
                     </tr>
 

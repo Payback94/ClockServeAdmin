@@ -7,6 +7,7 @@ include('../pages/Layout/header.php');
 $permitted_chars = '0123456789abcdefghijklmnopqrstuvwxyz';
 //random string
 $qr_string = substr(str_shuffle($permitted_chars), 0, 10);
+date_default_timezone_set('Asia/Singapore');
 $date = date('Y-m-d H:i:s');
 $time = date('H:i:s');
 $qr_array = array("session_id" => $qr_string, "date" => $date, "time" => $time);

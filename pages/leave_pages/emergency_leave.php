@@ -21,7 +21,7 @@ $rquery = mysqli_query($conn, $rsql);
 
 <div class="container">
     <div class="col-lg-12 p-5">
-        <h3 class="">Annual Leave Request Page</h3>
+        <h3 class="">Emergency Leave Request Page</h3>
         <div class="row">
             <div class="col-lg-12 ">
                 <div>
